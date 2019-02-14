@@ -2,11 +2,12 @@ import React from 'react';
 import {createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
-//import FeedStack from './RouteStackNavigator';
+import Authentication from '../../components/Login/Authentication';
 import Me from '../../components/Me';
 import Feed from '../../components/Feed';
 import UserDetail from '../../components/UserDetail';
 import Settings from '../../components/Settings';
+
 
 
 export const SettingsStack = createStackNavigator({
@@ -61,6 +62,9 @@ export const Tabs = createBottomTabNavigator({
   });
 
   export const Root = createStackNavigator({
+    Login: {
+      screen: Authentication
+    },
     Tabs: {
       screen: Tabs,
     },
