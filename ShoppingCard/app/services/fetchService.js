@@ -4,7 +4,7 @@ import { constants } from '../config/constants';
 
 export const FetchService = {
     async getData (url) {
-        let TokenId = await DeviceStorage.getKey(constants.StorageKey.Token_Id);
+        let TokenId = await DeviceStorage.getKey('Token_Id');
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method: "GET",
@@ -49,7 +49,7 @@ export const FetchService = {
     },
 
     async putData(url, data) {
-        let TokenId = await DeviceStorage.getKey(constants.StorageKey.Token_Id);
+        let TokenId = await DeviceStorage.getKey('Token_Id');
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method: "PUT",
@@ -71,7 +71,7 @@ export const FetchService = {
     },
 
     async deleteData(url) {
-        let TokenId = await DeviceStorage.getKey(constants.StorageKey.Token_Id); 
+        let TokenId = await DeviceStorage.getKey('Token_Id'); 
         return new Promise((resolve, reject) => {
             fetch(url, {
                 method: "DELETE",
