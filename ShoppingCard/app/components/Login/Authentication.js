@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
-// import {FetchService } from '../../services/FetchService' 
+import { FetchService } from '../../services/FetchService' 
 import { constants } from '../../config/constants';
 import {styles} from '../../stylesheet/styles'
 
@@ -14,7 +14,12 @@ export default class Authentication extends Component {
             token:"..."
         }
     }
-
+    LOGIN = () => {
+        var data = "grant_type=password&username=admin&password=admin@123&client_id=ScoreCard.WebMobile";
+        FetchService.postData(constants.ServiceUrl + "oauth/token", data)
+        .then(info => console.log(info))
+        .catch(err =>  console.log(err));
+    }
     render() {
         return (
             <View style={styles.wrapper}>
@@ -38,7 +43,9 @@ export default class Authentication extends Component {
                     />
                 </View>
                 <View style={styles.box}>
-                    <TouchableOpacity onPress={()=>{this.LOGIN()}}>
+                    <TouchableOpacity 
+                            style={{backgroundColor:'#FF0000', height: 40, width: 200, justifyContent:'center', alignItems:'center'}} 
+                            onPress={()=>{this.LOGIN()}}>
                         <Text>Login</Text>
                     </TouchableOpacity>
                 </View>

@@ -62,9 +62,9 @@ export const Tabs = createBottomTabNavigator({
   });
 
   export const Root = createStackNavigator({
-    Login: {
-      screen: Authentication
-    },
+    // Login: {
+    //   screen: Authentication
+    // },
     Tabs: {
       screen: Tabs,
     },

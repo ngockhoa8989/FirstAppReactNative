@@ -15,6 +15,8 @@ import AppContainer from './app/config/routes/RouteTabNavigator';
 //export default AppContainer;
 //<View style={{backgroundColor:'white', flex: 1, marginTop: 50}}><Text>Khoa</Text></View>
 export default class App extends Component {
+
+  
   render() {
     return (
        <AppContainer />
