@@ -1,5 +1,5 @@
 import React from 'react';
-import {createStackNavigator, createBottomTabNavigator, createAppContainer } from 'react-navigation';
+import {createStackNavigator, createBottomTabNavigator, createAppContainer,createDrawerNavigator } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 
 import Authentication from '../../components/Authentication/Authentication';
@@ -9,13 +9,17 @@ import UserDetail from '../../components/UserDetail';
 import Settings from '../../components/Settings';
 import Contact from '../../components/Contact/Contact';
 import Search from '../../components/Search/Search';
+import LeftMenu from '../../components/LeftMenu';
 
 export const SettingsStack = createStackNavigator({
   Me: {
     screen: Me,
-    navigationOptions: {
+    navigationOptions:({navigation})=>( {
       title: 'Me',
-    },
+      headerLeft:  <Icon  name="menuunfold" type="antdesign" size={25} color='#5f6063'
+      onPress={() => {navigation.openDrawer()}}
+      iconStyle={{marginLeft:15 }}/>
+    }),
   },
   Settings: {
     screen: Settings,
@@ -29,9 +33,12 @@ export const SettingsStack = createStackNavigator({
 export const FeedStack = createStackNavigator({
     Feed: {
       screen: Feed,
-      navigationOptions: {
+      navigationOptions:({navigation})=>( {
         title: 'Feed',
-      },
+        headerLeft:  <Icon  name="menuunfold" type="antdesign" size={25} color='#5f6063'
+        onPress={() => {navigation.openDrawer()}}
+        iconStyle={{marginLeft:15 }}/>
+      }),
     },
     Details: {
       screen: UserDetail,
@@ -45,18 +52,24 @@ export const FeedStack = createStackNavigator({
 export const ContactStack = createStackNavigator({
   Contact: {
     screen: Contact,
-    navigationOptions: {
+    navigationOptions:({navigation})=>( {
       title: 'Contact',
-    },
+      headerLeft:  <Icon  name="menuunfold" type="antdesign" size={25} color='#5f6063'
+      onPress={() => {navigation.openDrawer()}}
+      iconStyle={{marginLeft:15 }}/>
+    }),
   }
 });
 
 export const SearchStack = createStackNavigator({
   Search: {
     screen: Search,
-    navigationOptions: {
+    navigationOptions:({navigation})=>( {
       title: 'Search',
-    },
+      headerLeft:  <Icon  name="menuunfold" type="antdesign" size={25} color='#5f6063'
+      onPress={() => {navigation.openDrawer()}}
+      iconStyle={{marginLeft:15 }}/>
+    }),
   }
 });
 
@@ -91,18 +104,31 @@ export const Tabs = createBottomTabNavigator({
     },
   });
 
-  export const Root = createStackNavigator({
-    Login: {
-      screen: Authentication
+  export const Root = createDrawerNavigator({
+    Login:{
+      screen:Authentication,
     },
-    Tabs: {
-      screen: Tabs,
+    Tabs:{
+      screen:Tabs,
     },
+  },
+    {
+      drawerWidth:300,
+      drawerPosition:'left',
+      contentComponent: props=> <LeftMenu {...props}/>
+    }
+  );
+  
+  // export const Root = createStackNavigator({
+  
+  //   Tabs: {
+  //     screen: Tabs,
+  //   },
    
-  }, {
-    mode: 'modal',
-    headerMode: 'none',
-  });
+  // }, {
+  //   mode: 'modal',
+  //   headerMode: 'none',
+  // });
   const AppContainer = createAppContainer(Root);
 
   // Now AppContainer is the main component for React to render

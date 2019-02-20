@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {DeviceStorage} from './DeviceStorage';
+import DeviceStorage from './DeviceStorage';
 import { constants } from '../config/constants';
 
-export const FetchService = {
+const FetchService = {
     async getData (url) {
         let TokenId = await DeviceStorage.getKey('Token_Id');
         return new Promise((resolve, reject) => {
@@ -94,3 +94,4 @@ export const FetchService = {
     }
 };
 
+export default FetchService;

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, StatusBar } from 'react-native';
-import { FetchService } from '../../services/FetchService' 
+import FetchService  from '../../services/fetchService';
 import { constants } from '../../config/constants';
 
 import SignIn from './SignIn';

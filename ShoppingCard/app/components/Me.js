@@ -26,6 +26,13 @@ export default class Me extends Component {
                     onPress={() => this.handleSettingsPress()}
                 />
 
+                <Button
+                    title="Left Menu"
+                    buttonStyle={{ marginTop: 20, marginLeft:20, marginRight:20 }}
+                    onPress={() => {this.props.navigation.openDrawer();
+                    console.log('pressed');
+                }}
+                />
                 <ListItem
                     title="Email"
                     rightTitleStyle={styles.leftText}
