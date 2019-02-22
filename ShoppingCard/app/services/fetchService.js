@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import {DeviceStorage} from './DeviceStorage';
+import DeviceStorage from './DeviceStorage';
 import { constants } from '../config/constants';
 
-export const FetchService = {
+const FetchService = {
     async getData (url) {
         let TokenId = await DeviceStorage.getKey('Token_Id');
         return new Promise((resolve, reject) => {
@@ -27,8 +27,7 @@ export const FetchService = {
 
     async postData(url, data) {
         let  TokenId = await DeviceStorage.getKey('Token_Id');
-        return new Promise((resolve, reject) => {
-            fetch(url, {
+        return fetch(url, {
                 method: "POST",
                 headers: {
                     'Accept': 'application/json',
@@ -36,15 +35,14 @@ export const FetchService = {
                     'Authorization': TokenId ? 'Bearer ' + TokenId : null
                 },
                 body: typeof data === 'string' ? data : JSON.stringify(data)
-            })
-            .then((response) => response.json())
-            .then((responseJson) => {
-                resolve(responseJson);
-            })
-            .catch((error) => {
-                reject(error);
-            }); 
-        });
+                })
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    resolve(responseJson);
+                })
+                .catch((error) => {
+                    reject(error);
+                }); 
         
     },
 
@@ -94,3 +92,4 @@ export const FetchService = {
     }
 };
 
+export default FetchService;

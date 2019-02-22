@@ -1,6 +1,6 @@
 import { AsyncStorage } from 'react-native';
 
-export const DeviceStorage = {
+const DeviceStorage = {
     async setKey(key, value) {
       try {
         await AsyncStorage.setItem(key, value);
@@ -29,3 +29,4 @@ export const DeviceStorage = {
     }
   };
   
+export default DeviceStorage;

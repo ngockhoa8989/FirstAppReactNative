@@ -9,6 +9,9 @@ import UserDetail from '../../components/UserDetail';
 import Settings from '../../components/Settings';
 import Contact from '../../components/Contact/Contact';
 import Search from '../../components/Search/Search';
+import DemoReduxValidation from '../../components/Redux-Form/DemoReduxValidation';
+//import CameraScreen from '../../components/RNCamera/RNCamera';
+
 
 export const SettingsStack = createStackNavigator({
   Me: {
@@ -60,6 +63,15 @@ export const SearchStack = createStackNavigator({
   }
 });
 
+// export const CameraStack = createStackNavigator({
+//   Camera: {
+//     screen: CameraScreen,
+//     navigationOptions: {
+//       title: 'Camera',
+//     },
+//   }
+// });
+
 export const Tabs = createBottomTabNavigator({
     Feed: {
       screen: FeedStack,
@@ -86,14 +98,21 @@ export const Tabs = createBottomTabNavigator({
       screen: ContactStack,
       navigationOptions: {
         tabBarLabel: 'Contact',
-        tabBarIcon: ({ tintColor }) => <Icon name="place" size={35} color={tintColor} />
+        tabBarIcon: ({ tintColor }) => <Icon name="search" size={35} color={tintColor} />
       },
     },
+    // Camera: {
+    //   screen: CameraStack,
+    //   navigationOptions: {
+    //     tabBarLabel: 'Camera',
+    //     tabBarIcon: ({ tintColor }) => <Icon name="camera_enhance" size={35} color={tintColor} />
+    //   },
+    // },
   });
 
   export const Root = createStackNavigator({
     Login: {
-      screen: Authentication
+      screen: Contact
     },
     Tabs: {
       screen: Tabs,

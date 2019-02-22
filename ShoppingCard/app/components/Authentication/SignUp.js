@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import {Animated, View, TextInput, Text, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
 export default class SignUp extends Component {
     constructor(props) {
@@ -8,7 +8,8 @@ export default class SignUp extends Component {
             name: '',
             email: '',
             password: '',
-            rePassword: ''
+            rePassword: '',
+            fadeAnim: new Animated.Value(0)
         };
     }
 
@@ -45,7 +46,7 @@ export default class SignUp extends Component {
     render() {
         const { inputStyle, bigButton, buttonText } = styles;
         return (
-            <View>
+            <Animated.View>
                 <TextInput 
                     style={inputStyle} 
                     placeholder="Enter your name" 
@@ -75,7 +76,7 @@ export default class SignUp extends Component {
                 <TouchableOpacity style={bigButton} onPress={this.registerUser.bind(this)}>
                     <Text style={buttonText}>SIGN UP NOW</Text>
                 </TouchableOpacity>
-            </View>
+            </Animated.View>
         );
     }
 }

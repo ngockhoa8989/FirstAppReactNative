@@ -12,13 +12,13 @@ export default class SignIn extends Component {
 
     onSignIn() {
         const { email, password } = this.state;
-        // signIn(email, password)
-        //     .then(res => {
-        //         global.onSignIn(res.user);
-        //         this.props.goBackToMain();
-        //         saveToken(res.token);
-        //     })
-        //     .catch(err => console.log(err));
+        signIn(email, password)
+            .then(res => {
+                global.onSignIn(res.user);
+                this.props.goBackToMain();
+                saveToken(res.token);
+            })
+            .catch(err => console.log(err));
     }
 
     render() {

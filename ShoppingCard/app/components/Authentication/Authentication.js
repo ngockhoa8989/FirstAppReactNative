@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity, Image, StyleSheet, StatusBar } from 'react-native';
-import { FetchService } from '../../services/FetchService' 
+import FetchService  from '../../services/FetchService' 
 import { constants } from '../../config/constants';
 
 import SignIn from './SignIn';
@@ -23,7 +23,7 @@ export default class Authentication extends Component {
     signUp() {
         this.setState({ isSignIn: false });
     }
-
+    
     render() {
         const {
             row1, iconStyle, titleStyle,
