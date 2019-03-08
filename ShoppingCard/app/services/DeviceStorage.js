@@ -29,9 +29,4 @@ const DeviceStorage = {
     }
   };
   
-<<<<<<< HEAD
 export default DeviceStorage;
-=======
-  export default DeviceStorage;
-  
->>>>>>> 538b358c6f7579514673a9d987c3e7c658ef3b04

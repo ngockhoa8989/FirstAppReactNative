@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import DeviceStorage from './DeviceStorage';
-import { constants } from '../config/constants';
+
 
 const FetchService = {
-    async getData (url) {
+    getData = async(url) => {
         let TokenId = await DeviceStorage.getKey('Token_Id');
         return new Promise((resolve, reject) => {
             fetch(url, {
